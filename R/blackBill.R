@@ -29,3 +29,30 @@ blackBill_delete <- function(token,FProjectNumber) {
   return(res)
 
 }
+
+#' 黑名单上传
+#'
+#' @param file_name
+#' @param token
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' blackBill_upload()
+blackBill_upload <- function(token,file_name) {
+
+
+      data <- readxl::read_excel(file_name,col_types = c("text", "text", "date"))
+      data = as.data.frame(data)
+
+      data = tsdo::na_standard(data)
+      #上传服务器----------------
+      res=tsda::db_writeTable2(token = token,table_name = 'rds_t_rule_blackBill',r_object = data,append = TRUE)
+
+      return(res)
+
+      #end
+
+    }
+
