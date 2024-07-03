@@ -13,7 +13,7 @@ blackBill_view <- function(token) {
   return(res)
 
 }
-#' 黑名单查询
+#' 黑名单删除
 #'
 #' @param token
 #' @param FProjectNumber
@@ -25,7 +25,7 @@ blackBill_view <- function(token) {
 #' blackBill_delete()
 blackBill_delete <- function(token,FProjectNumber) {
   sql=paste0("delete from rds_t_rule_blackBill where FProjectNumber='",FProjectNumber,"'")
-  res=tsda::sql_select2(token = token,sql = sql)
+  res=tsda::sql_delete2(token = token,sql_str = sql)
   return(res)
 
 }
