@@ -2,7 +2,7 @@
 % Please edit documentation in R/blackBill.R
 \name{blackBill_delete}
 \alias{blackBill_delete}
-\title{黑名单查询}
+\title{黑名单删除}
 \usage{
 blackBill_delete(token, FProjectNumber)
 }
@@ -13,7 +13,7 @@ blackBill_delete(token, FProjectNumber)
 
 }
 \description{
-黑名单查询
+黑名单删除
 }
 \examples{
 blackBill_delete()
