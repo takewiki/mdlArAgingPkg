@@ -43,16 +43,16 @@ blackBill_delete <- function(token,FProjectNumber) {
 blackBill_upload <- function(token,file_name) {
 
 
-      data <- readxl::read_excel(file_name,col_types = c("text", "text", "date"))
-      data = as.data.frame(data)
+  data <- readxl::read_excel(file_name,col_types = c("text", "text", "date"))
+  data = as.data.frame(data)
 
-      data = tsdo::na_standard(data)
-      #上传服务器----------------
-      res=tsda::db_writeTable2(token = token,table_name = 'rds_t_rule_blackBill',r_object = data,append = TRUE)
+  data = tsdo::na_standard(data)
+  #上传服务器----------------
+  res=tsda::db_writeTable2(token = token,table_name = 'rds_t_rule_blackBill',r_object = data,append = TRUE)
 
-      return(res)
+  return(res)
 
-      #end
+  #end
 
-    }
+}
 
