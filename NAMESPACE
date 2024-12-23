@@ -3,3 +3,5 @@
 export(blackBill_delete)
 export(blackBill_upload)
 export(blackBill_view)
+export(customerDueDays_delete)
+export(customerDueDays_view)
