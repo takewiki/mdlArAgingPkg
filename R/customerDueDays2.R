@@ -37,30 +37,3 @@ customerDueDays_delete <- function(token,FCustomerNumber) {
   return(res)
 
 }
-
-#' 客户账期上传
-#'
-#' @param file_name
-#' @param token
-#'
-#' @return
-#' @export
-#'
-#' @examples
-#' customerDueDays_upload()
-customerDueDays_upload <- function(token,file_name) {
-
-
-  data <- readxl::read_excel(file_name,col_types = c("text", "text", "numeric", "numeric", "numeric", "text", "text"))
-  data = as.data.frame(data)
-
-  data = tsdo::na_standard(data)
-  #上传服务器----------------
-  res=tsda::db_writeTable2(token = token,table_name = 'rds_t_rule_customerDueDays',r_object = data,append = TRUE)
-
-  return(res)
-
-  #end
-
-}
-
